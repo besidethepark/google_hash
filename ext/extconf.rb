@@ -69,8 +69,8 @@ long_value = {:assert_value_type => 'T_FIXNUM', :convert_values_from_ruby => "FI
 
 init_funcs = []
 
-for key in [ruby_key, int_key, long_key] do
-  for value in [ruby_value, int_value, long_value] do
+for key in [ruby_key, long_key] do
+  for value in [ruby_value, long_value] do
     options = key.merge(value)
     for type in ['sparse', 'dense'] do
 
