@@ -104,9 +104,9 @@ struct eqrb
   }
 };
 
-#ifndef RBIGNUM_DIGITS
-# define RBIGNUM_DIGITS(a) RBIGNUM(a)->digits
-#endif
+//#ifndef RBIGNUM_DIGITS
+//# define RBIGNUM_DIGITS(a) RBIGNUM(a)->digits
+//#endif
 
 struct hashrb
 {
@@ -129,8 +129,8 @@ struct hashrb
               case T_SYMBOL:
                // ltodo
                 return hash_me;
-              case T_BIGNUM:
-	            return LONG2FIX(((long*)(RBIGNUM_DIGITS(hash_me)))[0]); // its first digit...I'm thinkin'
+              //case T_BIGNUM:
+	            //return LONG2FIX(((long*)(RBIGNUM_DIGITS(hash_me)))[0]); // its first digit...I'm thinkin'
 	             // not sure if this is faster or not...
 	             //case T_STRING:
 	             //return H(StringValueCStr(hash_me)); // populate/lookup 0.26 -> 0.23 [core is 0.16 somehow]
@@ -144,8 +144,8 @@ struct hashrb
             switch (TYPE(hval)) {
               case T_FIXNUM:
 	              return hval;
-              case T_BIGNUM:
-	              return LONG2FIX(((long*)(RBIGNUM_DIGITS(hval)))[0]);
+              //case T_BIGNUM:
+	              //return LONG2FIX(((long*)(RBIGNUM_DIGITS(hval)))[0]);
               default:
 	              hval = rb_to_int(hval);
 	              goto retry;
